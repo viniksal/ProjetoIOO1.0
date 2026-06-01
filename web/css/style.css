@@ -9,7 +9,7 @@ body{
     min-height:100vh;
 }
 
-/* SIDEBAR */
+/*SIDEBAR*/
 
 .sidebar{
     width:280px;
@@ -75,7 +75,7 @@ body{
     color:#ff7a1a;
 }
 
-/* CONTEUDO */
+/*CONTEUDO*/
 
 .content{
     flex:1;
@@ -97,7 +97,7 @@ body{
     color:#999;
 }
 
-/* CARDS */
+/*CARDS*/
 
 .metric-card{
     background:#1a1a1a;
@@ -148,7 +148,7 @@ body{
     color:#3c88ff;
 }
 
-/* TABELA */
+/*TABELA*/
 
 .tabela-card{
     background:#1a1a1a;
@@ -180,7 +180,7 @@ body{
     font-weight:bold;
 }
 
-/* STATUS */
+/*STATUS*/
 
 .status-producao{
     background:#6f5600;
@@ -198,7 +198,33 @@ body{
     background:#4d4d4d;
 }
 
-/* RESPONSIVO */
+/*HEADER*/
+.btn-novo-pedido{
+    background-color: #ff6b00;
+    color: white;
+    border: none;
+    border-radius: 12px;
+
+    padding: 12px 24px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    transition: .3s;
+}
+
+.btn-novo-pedido:hover{
+    background-color: #ff7f1f;
+    color: white;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 0 15px rgba(255,107,0,.3);
+    
+
+
+/*RESPONSIVO*/
 
 @media(max-width:992px){
 
