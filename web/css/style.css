@@ -217,11 +217,9 @@ body{
 .btn-novo-pedido:hover{
     background-color: #ff7f1f;
     color: white;
-
     transform: translateY(-2px);
-
     box-shadow: 0 0 15px rgba(255,107,0,.3);
-    
+}
 
 
 /*RESPONSIVO*/
@@ -241,6 +239,6 @@ body{
     .content{
         padding:15px;
     }
-
+  
 }
 

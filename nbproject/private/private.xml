@@ -5,6 +5,11 @@
         <group>
             <file>file:/C:/Users/vinik/OneDrive/Documentos/NetBeansProjects/ProjetoIOO1.0/web/index.html</file>
             <file>file:/C:/Users/vinik/OneDrive/Documentos/NetBeansProjects/ProjetoIOO1.0/web/home.html</file>
+            <file>file:/C:/Users/vinik/OneDrive/Documentos/NetBeansProjects/ProjetoIOO1.0/web/pedidos.html</file>
+            <file>file:/C:/Users/vinik/OneDrive/Documentos/NetBeansProjects/ProjetoIOO1.0/src/java/model/Pedido.java</file>
+            <file>file:/C:/Users/vinik/OneDrive/Documentos/NetBeansProjects/ProjetoIOO1.0/src/java/dao/PedidoDAO.java</file>
+            <file>file:/C:/Users/vinik/OneDrive/Documentos/NetBeansProjects/ProjetoIOO1.0/src/java/model/Usuario.java</file>
+            <file>file:/C:/Users/vinik/OneDrive/Documentos/NetBeansProjects/ProjetoIOO1.0/src/java/dao/UsuarioDAO.java</file>
         </group>
     </open-files>
 </project-private>
