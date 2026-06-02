@@ -27,17 +27,17 @@
     <body>
         <div class="login-form">
         <h2 class="text-center mb-4">Entrar</h2>
-        <form>
+        <form name="f1" action="controle_usuario_login" method="GET">
             <!-- Campo de E-mail -->
             <div class="mb-3">
                 <label for="email" class="form-label">E-mail</label>
-                <input type="email" class="form-control" id="email" placeholder="nome@exemplo.com" required>
+                <input type="email" class="form-control" id="email" name="email" placeholder="nome@exemplo.com" required>
             </div>
            
             <!-- Campo de Senha -->
             <div class="mb-3">
                 <label for="password" class="form-label">Senha</label>
-                <input type="password" class="form-control" id="password" placeholder="Digite sua senha" required>
+                <input type="password" class="form-control" name="senha" id="password" placeholder="Digite sua senha" required>
             </div>
            
             <!-- Lembrar de mim e Link de Recuperação -->
