@@ -1,68 +1,70 @@
 package model;
 
-import java.time.LocalDate; //Import da data
+import java.time.LocalDate;
 
 public class Pedido {
+
     private int idPedido;
-    private String usuario;
-    private String nomePedido;
-    private int quantidade;
-    private double preco;  
-    private LocalDate data;
-    
-    //IDPEDIDO
-    public int getIdPedido(){
+    private String cliente;
+    private String funcionario;
+    private LocalDate dataEntrega;
+    private double valorTotal;
+    private String descricao;
+    private String status;
+
+    public int getIdPedido() {
         return idPedido;
     }
-    
-    public void setIdPedido(int idPedido){
+
+    public void setIdPedido(int idPedido) {
         this.idPedido = idPedido;
     }
-    
-    //USUARIO
-    public String getUsuario(){
-        return usuario;
+
+    public String getCliente() {
+        return cliente;
     }
-    
-    public void setUsuario(String usuario){
-        this.usuario = usuario;
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
     }
-    
-    //NOMEPEDIDO    
-    public String getNomePedido(){
-        return nomePedido;
+
+    public String getFuncionario() {
+        return funcionario;
     }
-    
-    public void setNomePedido(String nomePedido){
-        this.nomePedido = nomePedido;
+
+    public void setFuncionario(String funcionario) {
+        this.funcionario = funcionario;
     }
-    
-    //quantidade
-    public int getQuantidade(){
-        return quantidade;
+
+    public LocalDate getDataEntrega() {
+        return dataEntrega;
     }
-    
-    public void setQuantidade(int quantidade){
-        this.quantidade = quantidade;
+
+    public void setDataEntrega(LocalDate dataEntrega) {
+        this.dataEntrega = dataEntrega;
     }
-    
-    //PRECO
-    
-    public double getPreco(){
-        return preco;
+
+    public double getValorTotal() {
+        return valorTotal;
     }
-    
-    public void setPreco(double preco){
-        this.preco = preco;
+
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
     }
-    
-    public LocalDate getData(){
-        return data;
+
+    public String getDescricao() {
+        return descricao;
     }
-    
-    public void setData(LocalDate data){
-        this.data = data;
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
-    
-    //DATA
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

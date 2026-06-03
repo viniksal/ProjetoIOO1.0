@@ -263,38 +263,38 @@
                         </button>
                 </div>
 
-                <form method="dialog">
+                <form action="controle_pedido" method="POST">
                     <div class="row g-3">
 
                         <div class="col-md-6">
                             <label class="form-label">Cliente</label>
-                            <input type="text" class="form-control input-dark">
+                            <input type="text" class="form-control input-dark" name="cliente">
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label">Funcionário</label>
-                            <input type="text" class="form-control input-dark">
+                            <input type="text" class="form-control input-dark" name="funcionario">
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label">Data de Entrega</label>
-                            <input type="date" class="form-control input-dark">
+                            <input type="date" class="form-control input-dark" name="data-entrega">
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label">Valor Total</label>
-                            <input type="number" step="0.01" class="form-control input-dark">
+                            <input type="number" step="0.01" class="form-control input-dark" name="valor-total">
                         </div>
 
                         <div class="col-12">
                             <label class="form-label">Descrição</label>
-                            <textarea rows="4" class="form-control input-dark"></textarea>
+                            <textarea rows="4" class="form-control input-dark" name="descricao"></textarea>
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label">Status</label>
 
-                            <select class="form-select input-dark">
+                            <select class="form-select input-dark" name="status">
                                 <option>Orçamento</option>
                                 <option>Em Produção</option>
                                 <option>Pronto</option>
@@ -305,7 +305,7 @@
                     
                     <div class="modal-footer-custom">
                         <button type="button" class="btn btn-outline-secondary" id="cancelarModal"> Cancelar </button>
-                        <button type="submit" class="btn btn-salvar">Salvar Pedido</button>
+                        <button type="submit" name="op" value="CADASTRAR" class="btn btn-salvar">Salvar Pedido</button>
                     </div>
                 </form>
             </dialog>
@@ -494,6 +494,14 @@
                     modal.close();
                 }
             });
+            
+         //pós cadastro
+            const params = new URLSearchParams(window.location.search);
+
+            if(params.get("sucesso") === "1"){
+                alert("Pedido cadastrado com sucesso!");
+            }
+
         </script>
     </body>
 </html>
