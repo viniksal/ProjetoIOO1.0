@@ -500,6 +500,7 @@
 
             if(params.get("sucesso") === "1"){
                 alert("Pedido cadastrado com sucesso!");
+                window.history.replaceState({}, document.title, window.location.pathname); // Remove ?sucesso=1 da URL sem recarregar a página
             }
 
         </script>
