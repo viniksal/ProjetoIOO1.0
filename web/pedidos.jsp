@@ -1,9 +1,18 @@
+<%@page import="java.util.List"%>
+<%@page import="model.Pedido"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
+<%
+List<Pedido> lista =
+(List<Pedido>) request.getAttribute("listaPedidos");
+%>
+
 <!doctype html>
 <html lang="pt-br">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Gráfica</title>
+        <title>GrÃ¡fica</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"> 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link rel="stylesheet" href="css/style.css">
@@ -26,7 +35,7 @@
                 backdrop-filter: blur(4px);
             }
 
-/* CABEÇALHO */
+/* CABEÃALHO */
 
             .modal-topo{
                 display: flex;
@@ -90,7 +99,7 @@
                 margin-top: 30px;
             }
 
-/* BOTÃO SALVAR */
+/* BOTÃO SALVAR */
             .btn-salvar{
                 background: #ff6b00;
                 color: white;
@@ -116,7 +125,7 @@
                 margin-bottom: 25px;
             }
 
-            /* Título da Seção */
+            /* TÃ­tulo da SeÃ§Ã£o */
             .filter-title {
                 color: #9e9e9e;
                 font-size: 12px;
@@ -134,7 +143,7 @@
                 display: block;
             }
 
-            /* Customização dos Inputs e Selects */
+            /* CustomizaÃ§Ã£o dos Inputs e Selects */
             .form-select-custom, 
             .form-control-custom {
                 display: block;
@@ -145,11 +154,11 @@
                 background-color: #1a1a1a; /* Fundo ligeiramente mais claro que o container */
                 border: 1px solid #2d2d2d;
                 border-radius: 8px;
-                appearance: none; /* Remove seta padrão do select para customizar se quiser */
+                appearance: none; /* Remove seta padrÃ£o do select para customizar se quiser */
                 transition: border-color 0.15s ease-in-out;
             }
 
-            /* Efeito de Focus nos Inputs */
+            
             .form-select-custom:focus, 
             .form-control-custom:focus {
                 outline: none;
@@ -157,13 +166,13 @@
                 color: #ffffff;
             }
 
-            /* Estilização específica para o input date (ícone do calendário) */
+            /* Estilizaçap específica para o input date (icone do calendario) */
             .form-control-custom::-webkit-calendar-picker-indicator {
-                filter: invert(0.6); /* Torna o ícone do calendário cinza claro */
+                filter: invert(0.6); 
                 cursor: pointer;
             }
 
-            /* Alinhamento dos Botões */
+            /* Alinhamento dos BotÃµes */
             .filter-actions {
                 display: flex;
                 justify-content: flex-end;
@@ -171,7 +180,7 @@
                 margin-top: 24px;
             }
 
-            /* Botão Limpar */
+            /* BotÃ£o Limpar */
             .btn-clear {
                 background: transparent;
                 color: #ffffff;
@@ -187,9 +196,9 @@
                 background-color: #1a1a1a;
             }
 
-            /* Botão Laranja */
+            /* BotÃ£o Laranja */
             .btn-search {
-                background-color: #ff5500; /* Laranja idêntico ao da imagem */
+                background-color: #ff5500; /* Laranja idÃªntico ao da imagem */
                 color: #ffffff;
                 border: none;
                 border-radius: 8px;
@@ -214,17 +223,17 @@
     <aside class="sidebar">
 
         <div class="logo-area">
-            <h2>GRÁFICA</h2>
+            <h2>GRaFICA</h2>
             <p>Sistema Inteligente</p>
         </div>
 
         <nav class="nav flex-column menu">
-            <!--📊 📄 👥 🖨-->
+            <!--ð ð ð¥ ð¨-->
             <a class="nav-link" href="home.html">
                 Dashboard
             </a>
 
-            <a class="nav-link active" href="pedidos.html">
+            <a class="nav-link active" href="controle_pedido?op=CONSULTAR+TODOS">
                 Pedidos
             </a>
 
@@ -239,14 +248,14 @@
         </nav>
 
         <div class="user-box">
-            <small>Usuário</small>
+            <small>UsuÃ¡rio</small>
             <h6>Carlos Lima</h6>
             <span>Atendente</span>
         </div>
 
     </aside>
 
-    <!-- CONTEÚDO -->
+    <!-- CONTEÃDO -->
     <main class="content">
         <!-- HEADER -->
         <div class="topbar">
@@ -272,7 +281,7 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label class="form-label">Funcionário</label>
+                            <label class="form-label">FuncionÃ¡rio</label>
                             <input type="text" class="form-control input-dark" name="funcionario">
                         </div>
 
@@ -287,7 +296,7 @@
                         </div>
 
                         <div class="col-12">
-                            <label class="form-label">Descrição</label>
+                            <label class="form-label">DescriÃ§Ã£o</label>
                             <textarea rows="4" class="form-control input-dark" name="descricao"></textarea>
                         </div>
 
@@ -295,8 +304,8 @@
                             <label class="form-label">Status</label>
 
                             <select class="form-select input-dark" name="status">
-                                <option>Orçamento</option>
-                                <option>Em Produção</option>
+                                <option>OrÃ§amento</option>
+                                <option>Em ProduÃ§Ã£o</option>
                                 <option>Pronto</option>
                                 <option>Entregue</option>
                             </select>
@@ -330,15 +339,15 @@
                         <div class="col-12 col-md-6 col-lg-3">
                             <label class="form-label-custom">Status</label>
                                 <select class="form-select input-dark" name="statusBuscar">
-                                    <option>Orçamento</option>
-                                    <option>Em Produção</option>
+                                    <option>OrÃ§amento</option>
+                                    <option>Em ProduÃ§Ã£o</option>
                                     <option>Pronto</option>
                                     <option>Entregue</option>
                                 </select>
                         </div>
 
                         <div class="col-12 col-md-6 col-lg-3">
-                            <label class="form-label-custom">Funcionário</label>
+                            <label class="form-label-custom">FuncionÃ¡rio</label>
                                 <input type="text" class="form-control input-dark" name="funcionarioBuscar">
                         </div>
 
@@ -359,7 +368,7 @@
                 <div class="col-lg-3 col-md-6">
                 <div class="metric-card yellow">
                     <h2>2</h2>
-                    <p>EM PRODUÇÃO</p>
+                    <p>EM PRODUÃÃO</p>
                 </div>
             </div>
 
@@ -373,7 +382,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="metric-card blue">
                     <h2>1</h2>
-                    <p>EM ORÇAMENTO</p>
+                    <p>EM ORÃAMENTO</p>
                 </div>
             </div>
             -->
@@ -381,6 +390,7 @@
         </div>
 
         <!-- TABELA -->
+        <!--
         <div class="card tabela-card">
 
             <div class="card-header">
@@ -395,7 +405,7 @@
                         <tr>
                             <th>#</th>
                             <th>Cliente</th>
-                            <th>Funcionário</th>
+                            <th>FuncionÃ¡rio</th>
                             <th>Entrega</th>
                             <th>Total</th>
                             <th>Status</th>
@@ -412,20 +422,20 @@
                             <td class="valor">R$ 480,00</td>
                             <td>
                                 <span class="badge status-producao">
-                                    Em Produção
+                                    Em ProduÃ§Ã£o
                                 </span>
                             </td>
                         </tr>
 
                         <tr>
                             <td>002</td>
-                            <td>João Ferreira</td>
+                            <td>JoÃ£o Ferreira</td>
                             <td>Ana Paula</td>
                             <td>15/06/2026</td>
                             <td class="valor">R$ 210,00</td>
                             <td>
                                 <span class="badge status-orcamento">
-                                    Orçamento
+                                    OrÃ§amento
                                 </span>
                             </td>
                         </tr>
@@ -445,7 +455,7 @@
 
                         <tr>
                             <td>004</td>
-                            <td>Tech Soluções LTDA</td>
+                            <td>Tech SoluÃ§Ãµes LTDA</td>
                             <td>Ana Paula</td>
                             <td>20/05/2026</td>
                             <td class="valor">R$ 355,00</td>
@@ -458,8 +468,126 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div>-->
         
+        <!--
+        <div class="card-dark">
+            <h4 class="section-title">
+                LISTA DE PEDIDOS
+            </h4>
+
+            <div class="table-responsive">
+
+                <table class="table table-dark align-middle">
+
+                    <thead>
+
+                        <tr>
+                            <th>#</th>
+                            <th>CLIENTE</th>
+                            <th>FUNCIONÃRIO</th>
+                            <th>DATA ENTREGA</th>
+                            <th>STATUS</th>
+                            <th>TOTAL</th>
+                            <th>AÃÃES</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="tabelaPedidos">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>-->
+        <div class="card tabela-card">
+
+            <div class="card-header">
+                PEDIDOS RECENTES
+            </div>
+
+            <div class="table-responsive">
+
+                <table class="table table-dark align-middle">
+
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Cliente</th>
+                            <th>FuncionÃ¡rio</th>
+                            <th>Entrega</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <%
+                        if(lista != null){
+                            for(Pedido p : lista){
+                        %>
+
+                            <tr>
+
+                                <td><%= p.getIdPedido() %></td>
+
+                                <td><%= p.getCliente() %></td>
+
+                                <td><%= p.getFuncionario() %></td>
+
+                                <td><%= p.getDataEntrega() %></td>
+
+                                <td>
+                                    <span class="badge bg-warning text-dark">
+                                        <%= p.getStatus() %>
+                                    </span>
+                                </td>
+
+                                <td>
+                                    R$ <%= String.format("%.2f", p.getValorTotal()) %>
+                                </td>
+
+                                <td>
+
+                                    <button
+                                        class="btn btn-sm btn-outline-light visualizar"
+                                        data-id="<%= p.getIdPedido() %>">
+                                        👁
+                                    </button>
+
+                                    <button
+                                        class="btn btn-sm btn-outline-primary editar"
+                                        data-id="<%= p.getIdPedido() %>">
+                                        ✏
+                                    </button>
+
+                                    <button
+                                        class="btn btn-sm btn-outline-danger excluir"
+                                        data-id="<%= p.getIdPedido() %>">
+                                        🗑
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+                        <%
+                            }
+                        }
+                        %>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
         
         
         
@@ -484,21 +612,92 @@
             document.getElementById("cancelarModal").addEventListener("click", () => {
                 modal.close();
                     });
-            //Fecha o modal se o usuário clicar no fundo escuro (fora do modal)
-            modal.addEventListener('click', (e) => {  //aqui estou testando esse método de função
+            //Fecha o modal se o usuÃ¡rio clicar no fundo escuro (fora do modal)
+            modal.addEventListener('click', (e) => {  //aqui estou testando esse mÃ©todo de funÃ§Ã£o
                 if (e.target === modal) {
                     modal.close();
                 }
             });
             
-         //pós cadastro
+         //pÃ³s cadastro
             const params = new URLSearchParams(window.location.search);
 
             if(params.get("sucesso") === "1"){
                 alert("Pedido cadastrado com sucesso!");
-                window.history.replaceState({}, document.title, window.location.pathname); // Remove ?sucesso=1 da URL sem recarregar a página
+                window.history.replaceState({}, document.title, window.location.pathname); // Remove ?sucesso=1 da URL sem recarregar a pÃ¡gina
+            }
+            
+            
+         //table intuitiva
+         /*
+         window.onload = carregarPedidos;
+
+            function carregarPedidos(){
+
+                fetch("listar_pedidos")
+
+                .then(response => response.json())
+
+                .then(dados => {
+
+                    let tabela =
+                        document.getElementById(
+                            "tabelaPedidos");
+
+                    tabela.innerHTML = "";
+
+                    dados.forEach(pedido => {
+
+                        tabela.innerHTML += `
+                            <tr>
+
+                                <td>${pedido.idPedido}</td>
+
+                                <td>${pedido.cliente}</td>
+
+                                <td>${pedido.funcionario}</td>
+
+                                <td>${pedido.dataEntrega}</td>
+
+                                <td>
+                                    ${pedido.status}
+                                </td>
+
+                                <td>
+                                    R$ ${pedido.valorTotal}
+                                </td>
+
+                                <td>
+
+                                    <button
+                                        class="btn btn-sm btn-outline-light visualizar"
+                                        data-id="${pedido.idPedido}">
+                                        ð
+                                    </button>
+
+                                    <button
+                                        class="btn btn-sm btn-outline-light editar"
+                                        data-id="${pedido.idPedido}">
+                                        â
+                                    </button>
+
+                                    <button
+                                        class="btn btn-sm btn-outline-danger excluir"
+                                        data-id="${pedido.idPedido}">
+                                        ð
+                                    </button>
+
+                                </td>
+
+                            </tr>
+                        `;
+                    });
+
+                });
+
             }
 
+            */
         </script>
     </body>
 </html>

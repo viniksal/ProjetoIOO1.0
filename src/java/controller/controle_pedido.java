@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Pedido;
+import java.util.List;
 
 @WebServlet("/controle_pedido")
 public class controle_pedido extends HttpServlet {
@@ -38,9 +39,21 @@ public class controle_pedido extends HttpServlet {
 
             try {
                 pdao.cadastrar(p);
-                response.sendRedirect("pedidos.html?sucesso=1");
+                response.sendRedirect("pedidos.jsp?sucesso=1");
             } catch (ClassNotFoundException | SQLException ex) {
                 response.getWriter().println(ex.getMessage());
+            }
+        }else if ("CONSULTAR TODOS".equals(op)) {
+            try {
+
+                PedidoDAO pdao = new PedidoDAO();
+                List<Pedido> lista = pdao.consultarTodos();
+                request.setAttribute("listaPedidos", lista);
+                request.getRequestDispatcher("pedidos.jsp").forward(request, response);
+
+            } catch (ClassNotFoundException | SQLException ex) {
+                response.getWriter().println(ex.getMessage());
+
             }
         }
     }
