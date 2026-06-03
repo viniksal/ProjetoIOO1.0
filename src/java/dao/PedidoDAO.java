@@ -35,17 +35,11 @@ public class PedidoDAO {
         
     }
     
-    public List<Pedido> consultarTodos()
-        throws ClassNotFoundException, SQLException {
-
-    Connection con = conexao.getConexao();
-
-    PreparedStatement comando =
-            con.prepareStatement("SELECT * FROM db_grafica.tb_pedido");
-
-    ResultSet rs = comando.executeQuery();
-
-    List<Pedido> lista = new ArrayList<>();
+    public List<Pedido> consultarTodos()throws ClassNotFoundException, SQLException {
+        Connection con = conexao.getConexao();
+        PreparedStatement comando = con.prepareStatement("SELECT * FROM db_grafica.tb_pedido");
+        ResultSet rs = comando.executeQuery();
+        List<Pedido> lista = new ArrayList<>();
 
     while (rs.next()) {
 
@@ -63,8 +57,49 @@ public class PedidoDAO {
     }
 
     con.close();
-
     return lista;
 }
+    public void deletar(Pedido p) throws ClassNotFoundException, SQLException {
+
+        Connection con = conexao.getConexao();
+
+        PreparedStatement comando =
+                con.prepareStatement(
+                        "DELETE FROM tb_pedido WHERE idPedido = ?");
+
+        comando.setInt(1, p.getIdPedido());
+
+        comando.execute();
+
+        con.close();
+    }
+    
+    public void atualizar(Pedido p) throws ClassNotFoundException, SQLException {
+
+        Connection con = conexao.getConexao();
+
+        PreparedStatement comando = con.prepareStatement(
+
+            "UPDATE tb_pedido " +
+            "SET cliente=?, " +
+            "funcionario=?, " +
+            "dataEntrega=?, " +
+            "valorTotal=?, " +
+            "descricao=?, " +
+            "status=? " +
+            "WHERE idPedido=?");
+
+        comando.setString(1, p.getCliente());
+        comando.setString(2, p.getFuncionario());
+        comando.setDate(3, java.sql.Date.valueOf( p.getDataEntrega()));
+        comando.setDouble(4, p.getValorTotal());
+        comando.setString(5, p.getDescricao());
+        comando.setString(6, p.getStatus());
+        comando.setInt(7, p.getIdPedido());
+        
+        comando.execute();
+
+        con.close();
+    }
     
 }

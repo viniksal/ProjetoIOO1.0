@@ -12,7 +12,7 @@ List<Pedido> lista =
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>GrÃ¡fica</title>
+        <title>Gráfica</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"> 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link rel="stylesheet" href="css/style.css">
@@ -223,7 +223,7 @@ List<Pedido> lista =
     <aside class="sidebar">
 
         <div class="logo-area">
-            <h2>GRaFICA</h2>
+            <h2>GRÁFICA</h2>
             <p>Sistema Inteligente</p>
         </div>
 
@@ -248,7 +248,7 @@ List<Pedido> lista =
         </nav>
 
         <div class="user-box">
-            <small>UsuÃ¡rio</small>
+            <small>Usuário</small>
             <h6>Carlos Lima</h6>
             <span>Atendente</span>
         </div>
@@ -273,39 +273,40 @@ List<Pedido> lista =
                 </div>
 
                 <form action="controle_pedido" method="POST">
+                    <input type="hidden" name="idPedido" id="idPedido">
                     <div class="row g-3">
 
                         <div class="col-md-6">
                             <label class="form-label">Cliente</label>
-                            <input type="text" class="form-control input-dark" name="cliente">
+                            <input type="text" class="form-control input-dark" name="cliente" id="cliente">
                         </div>
 
                         <div class="col-md-6">
-                            <label class="form-label">FuncionÃ¡rio</label>
-                            <input type="text" class="form-control input-dark" name="funcionario">
+                            <label class="form-label">Funcionário</label>
+                            <input type="text" class="form-control input-dark" name="funcionario" id="funcionario">
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label">Data de Entrega</label>
-                            <input type="date" class="form-control input-dark" name="data-entrega">
+                            <input type="date" class="form-control input-dark" name="data-entrega" id="dataEntrega">
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label">Valor Total</label>
-                            <input type="number" step="0.01" class="form-control input-dark" name="valor-total">
+                            <input type="number" step="0.01" class="form-control input-dark" name="valor-total" id="valorTotal">
                         </div>
 
                         <div class="col-12">
-                            <label class="form-label">DescriÃ§Ã£o</label>
-                            <textarea rows="4" class="form-control input-dark" name="descricao"></textarea>
+                            <label class="form-label">Descrição</label>
+                            <textarea rows="4" class="form-control input-dark" name="descricao" id="descricao"></textarea>
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label">Status</label>
 
-                            <select class="form-select input-dark" name="status">
-                                <option>OrÃ§amento</option>
-                                <option>Em ProduÃ§Ã£o</option>
+                            <select class="form-select input-dark" name="status" id="status">
+                                <option>Orçamento</option>
+                                <option>Em Produção</option>
                                 <option>Pronto</option>
                                 <option>Entregue</option>
                             </select>
@@ -314,16 +315,12 @@ List<Pedido> lista =
                     
                     <div class="modal-footer-custom">
                         <button type="button" class="btn btn-outline-secondary" id="cancelarModal"> Cancelar </button>
-                        <button type="submit" name="op" value="CADASTRAR" class="btn btn-salvar">Salvar Pedido</button>
+                        <button type="submit" name="op" value="CADASTRAR" id="btnSalvar" class="btn btn-salvar">Salvar Pedido</button>
                     </div>
                 </form>
             </dialog>
         </div> <!--fecha a div topbar-->
     
-        
-        
-        
-        
         <form action="controle_pedido" method="get" name="op">
             <div class="row g-0 mb-4">
 
@@ -339,15 +336,15 @@ List<Pedido> lista =
                         <div class="col-12 col-md-6 col-lg-3">
                             <label class="form-label-custom">Status</label>
                                 <select class="form-select input-dark" name="statusBuscar">
-                                    <option>OrÃ§amento</option>
-                                    <option>Em ProduÃ§Ã£o</option>
+                                    <option>Orçamento</option>
+                                    <option>Em Produção</option>
                                     <option>Pronto</option>
                                     <option>Entregue</option>
                                 </select>
                         </div>
 
                         <div class="col-12 col-md-6 col-lg-3">
-                            <label class="form-label-custom">FuncionÃ¡rio</label>
+                            <label class="form-label-custom">Funcionário</label>
                                 <input type="text" class="form-control input-dark" name="funcionarioBuscar">
                         </div>
 
@@ -357,40 +354,15 @@ List<Pedido> lista =
                         </div>
                     </div>
 
-                <div class="filter-actions">
-                    <button type="button" class="btn-clear">Limpar</button>
-                    <button type="button" class="btn-search">Buscar</button>
+                    <div class="filter-actions">
+                        <button type="button" class="btn-clear">Limpar</button>
+                        <button type="button" class="btn-search">Buscar</button>
+                    </div>
                 </div>
-            </div>
         </form>
 
-            <!--  
-                <div class="col-lg-3 col-md-6">
-                <div class="metric-card yellow">
-                    <h2>2</h2>
-                    <p>EM PRODUÃÃO</p>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-                <div class="metric-card green">
-                    <h2>1</h2>
-                    <p>PRONTOS P/ RETIRADA</p>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-                <div class="metric-card blue">
-                    <h2>1</h2>
-                    <p>EM ORÃAMENTO</p>
-                </div>
-            </div>
-            -->
-
-        </div>
-
         <!-- TABELA -->
-        <!--
+                               
         <div class="card tabela-card">
 
             <div class="card-header">
@@ -405,119 +377,7 @@ List<Pedido> lista =
                         <tr>
                             <th>#</th>
                             <th>Cliente</th>
-                            <th>FuncionÃ¡rio</th>
-                            <th>Entrega</th>
-                            <th>Total</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-
-                        <tr>
-                            <td>001</td>
-                            <td>Marcela Souza</td>
-                            <td>Carlos Lima</td>
-                            <td>10/06/2026</td>
-                            <td class="valor">R$ 480,00</td>
-                            <td>
-                                <span class="badge status-producao">
-                                    Em ProduÃ§Ã£o
-                                </span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>002</td>
-                            <td>JoÃ£o Ferreira</td>
-                            <td>Ana Paula</td>
-                            <td>15/06/2026</td>
-                            <td class="valor">R$ 210,00</td>
-                            <td>
-                                <span class="badge status-orcamento">
-                                    OrÃ§amento
-                                </span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>003</td>
-                            <td>Restaurante Bella Vita</td>
-                            <td>Carlos Lima</td>
-                            <td>30/05/2026</td>
-                            <td class="valor">R$ 920,00</td>
-                            <td>
-                                <span class="badge status-pronto">
-                                    Pronto
-                                </span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>004</td>
-                            <td>Tech SoluÃ§Ãµes LTDA</td>
-                            <td>Ana Paula</td>
-                            <td>20/05/2026</td>
-                            <td class="valor">R$ 355,00</td>
-                            <td>
-                                <span class="badge status-entregue">
-                                    Entregue
-                                </span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>-->
-        
-        <!--
-        <div class="card-dark">
-            <h4 class="section-title">
-                LISTA DE PEDIDOS
-            </h4>
-
-            <div class="table-responsive">
-
-                <table class="table table-dark align-middle">
-
-                    <thead>
-
-                        <tr>
-                            <th>#</th>
-                            <th>CLIENTE</th>
-                            <th>FUNCIONÃRIO</th>
-                            <th>DATA ENTREGA</th>
-                            <th>STATUS</th>
-                            <th>TOTAL</th>
-                            <th>AÃÃES</th>
-                        </tr>
-
-                    </thead>
-
-                    <tbody id="tabelaPedidos">
-
-                    </tbody>
-
-                </table>
-
-            </div>
-
-        </div>-->
-        <div class="card tabela-card">
-
-            <div class="card-header">
-                PEDIDOS RECENTES
-            </div>
-
-            <div class="table-responsive">
-
-                <table class="table table-dark align-middle">
-
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Cliente</th>
-                            <th>FuncionÃ¡rio</th>
+                            <th>Funcionário</th>
                             <th>Entrega</th>
                             <th>Total</th>
                             <th>Status</th>
@@ -554,22 +414,39 @@ List<Pedido> lista =
                                 <td>
 
                                     <button
+                                        type="button"
                                         class="btn btn-sm btn-outline-light visualizar"
                                         data-id="<%= p.getIdPedido() %>">
                                         👁
                                     </button>
 
                                     <button
+                                        type="button"
                                         class="btn btn-sm btn-outline-primary editar"
-                                        data-id="<%= p.getIdPedido() %>">
+                                        data-id="<%= p.getIdPedido() %>"
+                                        data-cliente="<%= p.getCliente() %>"
+                                        data-funcionario="<%= p.getFuncionario() %>"
+                                        data-data="<%= p.getDataEntrega() %>"
+                                        data-valor="<%= p.getValorTotal() %>"
+                                        data-descricao="<%= p.getDescricao() %>"
+                                        data-status="<%= p.getStatus() %>">
+
                                         ✏
+
                                     </button>
 
-                                    <button
-                                        class="btn btn-sm btn-outline-danger excluir"
-                                        data-id="<%= p.getIdPedido() %>">
-                                        🗑
-                                    </button>
+                                    <!--<a
+                                        href="controle_pedido?op=DELETAR&idPedido=<%= p.getIdPedido() %>"
+                                        onclick="return confirm('Deseja realmente excluir este pedido?');">
+
+                                        <button class="btn btn-sm btn-outline-danger" name="op">🗑</button>
+
+                                    </a>-->
+                                    <a href="controle_pedido?op=DELETAR&idPedido=<%= p.getIdPedido() %>"
+                                        class="btn btn-sm btn-outline-danger"
+                                        onclick="return confirm('Deseja realmente excluir este pedido?');">
+                                         🗑
+                                    </a>
 
                                 </td>
 
@@ -588,12 +465,7 @@ List<Pedido> lista =
 
             </div>
         </div>
-        
-        
-        
-        
 
-        
             </main>
 
         </div>
@@ -612,92 +484,51 @@ List<Pedido> lista =
             document.getElementById("cancelarModal").addEventListener("click", () => {
                 modal.close();
                     });
-            //Fecha o modal se o usuÃ¡rio clicar no fundo escuro (fora do modal)
-            modal.addEventListener('click', (e) => {  //aqui estou testando esse mÃ©todo de funÃ§Ã£o
+            //Fecha o modal se o usuário clicar no fundo escuro (fora do modal)
+            modal.addEventListener('click', (e) => {  //aqui estou testando esse método de função
                 if (e.target === modal) {
                     modal.close();
                 }
             });
             
-         //pÃ³s cadastro
+         //pós cadastro e edição
             const params = new URLSearchParams(window.location.search);
 
             if(params.get("sucesso") === "1"){
                 alert("Pedido cadastrado com sucesso!");
                 window.history.replaceState({}, document.title, window.location.pathname); // Remove ?sucesso=1 da URL sem recarregar a pÃ¡gina
             }
-            
-            
-         //table intuitiva
-         /*
-         window.onload = carregarPedidos;
+            if(params.get("editado") === "1"){
 
-            function carregarPedidos(){
+                alert("Pedido atualizado com sucesso!");
 
-                fetch("listar_pedidos")
-
-                .then(response => response.json())
-
-                .then(dados => {
-
-                    let tabela =
-                        document.getElementById(
-                            "tabelaPedidos");
-
-                    tabela.innerHTML = "";
-
-                    dados.forEach(pedido => {
-
-                        tabela.innerHTML += `
-                            <tr>
-
-                                <td>${pedido.idPedido}</td>
-
-                                <td>${pedido.cliente}</td>
-
-                                <td>${pedido.funcionario}</td>
-
-                                <td>${pedido.dataEntrega}</td>
-
-                                <td>
-                                    ${pedido.status}
-                                </td>
-
-                                <td>
-                                    R$ ${pedido.valorTotal}
-                                </td>
-
-                                <td>
-
-                                    <button
-                                        class="btn btn-sm btn-outline-light visualizar"
-                                        data-id="${pedido.idPedido}">
-                                        ð
-                                    </button>
-
-                                    <button
-                                        class="btn btn-sm btn-outline-light editar"
-                                        data-id="${pedido.idPedido}">
-                                        â
-                                    </button>
-
-                                    <button
-                                        class="btn btn-sm btn-outline-danger excluir"
-                                        data-id="${pedido.idPedido}">
-                                        ð
-                                    </button>
-
-                                </td>
-
-                            </tr>
-                        `;
-                    });
-
-                });
-
+                window.history.replaceState( {}, document.title, window.location.pathname);
             }
+            
+        //modal editar
+        document.querySelectorAll(".editar").forEach(botao => {
 
-            */
+            botao.addEventListener("click", function(){
+
+                modal.showModal();
+
+                document.getElementById("idPedido").value = this.dataset.id;
+                document.getElementById("cliente").value = this.dataset.cliente;
+                document.getElementById("funcionario").value = this.dataset.funcionario;
+                document.getElementById("dataEntrega").value = this.dataset.data;
+                document.getElementById("valorTotal").value = this.dataset.valor;
+                document.getElementById("descricao").value = this.dataset.descricao;
+                document.getElementById("status").value = this.dataset.status;
+            
+                const btn = document.getElementById("btnSalvar");
+
+                btn.innerHTML = "Atualizar Pedido";
+                btn.value = "ATUALIZAR";
+
+            });
+
+        });
+            
         </script>
     </body>
 </html>
