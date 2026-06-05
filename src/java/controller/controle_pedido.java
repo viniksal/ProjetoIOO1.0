@@ -14,70 +14,6 @@ import java.util.List;
 
 @WebServlet("/controle_pedido")
 public class controle_pedido extends HttpServlet {
-
-    /*
-    protected void processRequest(
-            HttpServletRequest request,
-            HttpServletResponse response)
-            throws ServletException, IOException {
-
-        String op = request.getParameter("op");
-        
-        //alteração futura: substituir para SWITCH AND CASE
-
-        if(op.equals("CADASTRAR")){
-            Pedido p = new Pedido();
-            p.setCliente(request.getParameter("cliente"));
-            p.setFuncionario(request.getParameter("funcionario"));
-            p.setDataEntrega(
-                    LocalDate.parse(request.getParameter("data-entrega"))
-            );
-
-            p.setValorTotal(
-                 Double.parseDouble(request.getParameter("valor-total"))
-            );
-            p.setDescricao(request.getParameter("descricao"));
-            p.setStatus(request.getParameter("status"));
-            PedidoDAO pdao = new PedidoDAO();
-
-            try{
-                pdao.cadastrar(p);
-                //response.sendRedirect("pedidos.jsp?sucesso=1");
-                response.sendRedirect("controle_pedido?op=CONSULTAR+TODOS&sucesso=1");
-            }catch (ClassNotFoundException | SQLException ex){
-                response.getWriter().println(ex.getMessage());
-            }
-        }else if ("CONSULTAR TODOS".equals(op)){  //teste de inverter
-            try{
-
-                PedidoDAO pdao = new PedidoDAO();
-                List<Pedido> lista = pdao.consultarTodos();
-                request.setAttribute("listaPedidos", lista);
-                request.getRequestDispatcher("pedidos.jsp").forward(request, response);
-
-            }catch (ClassNotFoundException | SQLException ex){
-                response.getWriter().println(ex.getMessage());
-            }
-            
-        }else if(op.equals("DELETAR")){
-
-            int idPedido = Integer.parseInt(request.getParameter("idPedido"));
-            Pedido p = new Pedido();
-            p.setIdPedido(idPedido);
-            
-            try{
-                PedidoDAO pdao = new PedidoDAO();
-                pdao.deletar(p);
-                response.sendRedirect("controle_pedido?op=CONSULTAR+TODOS");
-                
-            }catch(ClassNotFoundException | SQLException ex){
-                ex.printStackTrace();
-            }
-
-        }
-    }
-    
-    */
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
@@ -93,6 +29,7 @@ public class controle_pedido extends HttpServlet {
         PedidoDAO pdao = new PedidoDAO();
 
         try {
+            //alteração futura: substituir para SWITCH AND CASE
             if ("CADASTRAR".equals(op)) {
                 Pedido p = new Pedido();
                 p.setCliente(request.getParameter("cliente"));
@@ -103,7 +40,7 @@ public class controle_pedido extends HttpServlet {
                 p.setStatus(request.getParameter("status"));
 
                 pdao.cadastrar(p);
-                // CORREÇÃO: Redireciona para o Servlet consultar de novo, não para a JSP direto
+                
                 response.sendRedirect("controle_pedido?op=CONSULTAR+TODOS&sucesso=1");
 
             } else if ("DELETAR".equals(op)) {
@@ -130,14 +67,14 @@ public class controle_pedido extends HttpServlet {
 
                 response.sendRedirect("controle_pedido?op=CONSULTAR+TODOS&editado=1");
             } else {
-                // "CONSULTAR TODOS" ou qualquer outra coisa cai aqui (Padrão de segurança)
+                // "CONSULTAR TODOS" ou qualquer outra coisa cai aqui. Fiz isso para, independente de adversidades, listar e mostrar os pedidos
                 List<Pedido> lista = pdao.consultarTodos();
                 request.setAttribute("listaPedidos", lista);
                 request.getRequestDispatcher("pedidos.jsp").forward(request, response);
             }
 
         } catch (Exception ex) {
-            // Se der erro, printamos no console do servidor para você ver o que é
+            // Se der erro, printa no console do servidor para você ver o que é
             ex.printStackTrace(); 
             response.getWriter().println("Erro no sistema: " + ex.getMessage());
         }

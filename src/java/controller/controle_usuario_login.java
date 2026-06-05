@@ -32,7 +32,7 @@ public class controle_usuario_login extends HttpServlet {
                 response.sendRedirect("home.html");
             } else {
                 request.setAttribute("mensagem", "E-mail ou senha inválidos");
-                request.getRequestDispatcher("pedidos.html").forward(request, response);
+                request.getRequestDispatcher("index.html").forward(request, response);
             }
             
             /*

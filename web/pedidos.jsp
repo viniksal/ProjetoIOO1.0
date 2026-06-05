@@ -324,6 +324,7 @@ List<Pedido> lista =
         <form action="controle_pedido" method="get" name="op">
             <div class="row g-0 mb-4">
 
+                <!--
                 <div class="filter-container">
                     <p class="filter-title">FILTROS</p>
 
@@ -358,7 +359,7 @@ List<Pedido> lista =
                         <button type="button" class="btn-clear">Limpar</button>
                         <button type="button" class="btn-search">Buscar</button>
                     </div>
-                </div>
+                </div> -->
         </form>
 
         <!-- TABELA -->
